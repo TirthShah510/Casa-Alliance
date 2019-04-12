@@ -1,0 +1,11 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+    <h1>Delete  {{ commentadd.text }}</h1>
+    <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+    <a href="{% url 'basic_app:blog_list'%}">Cancel</a>
+    </form>
+{% endblock %}

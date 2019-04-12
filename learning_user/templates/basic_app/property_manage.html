@@ -1,0 +1,35 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+<li><a href="{% url 'basic_app:property_home' %}">HOME</a></li>
+
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Wing Name</th>
+        <th>Flat NO.</th>
+      <th>Image</th>
+      <th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+  </thead>
+    <tbody>
+    {% if list %}
+    {% for k in list %}
+      <tr>
+        <td>{{ k.wing_name }}</td>
+          <td>{{ k.flat_no }}</td>
+          <td><image src = "{{ k.property_picture.url }}" width="250"></image></td>
+          <td><a href="{{ k.id }}">Click</a></td>
+        <td><a href="{% url 'basic_app:property_update' pk=k.pk %}">Click</a></td>
+        <td><a href="{% url 'basic_app:property_delete' pk=k.pk %}">Click</a></td>
+
+      </tr>
+    {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+
+{% endblock %}

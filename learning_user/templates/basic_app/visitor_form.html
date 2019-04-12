@@ -1,0 +1,18 @@
+{% extends 'basic_app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+
+    <form novalidate method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="center btn btn-primary btn-lg" type="submit"> submit </button>
+
+    </form>
+    <br><br>
+        <a href="{% url 'basic_app:watchman_home' %}">BACK</a>
+    </div>
+{% endblock %}

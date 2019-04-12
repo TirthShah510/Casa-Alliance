@@ -1,0 +1,15 @@
+{% extends 'basic_app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+
+    <div class="container">
+{#        <h2> fill out form here!!!!</h2>#}
+        <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit"  class="btn btn-success btn-block" style="margin-bottom: 1.5rem" name="submit">
+        </form>
+    </div>
+{% endblock %}

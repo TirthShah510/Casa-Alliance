@@ -1,0 +1,16 @@
+{% extends 'basic_app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+    <form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+   <input type="submit" style="margin-top: 1.5rem" class="btn btn-success btn-block" value="Save">
+    </form>
+<br>
+    <li class="list-group-item"><a href="{% url 'basic_app:staff_list' %}">Staff list</a></li>
+    <br>
+    <li class="list-group-item"><a href="{% url 'basic_app:flat' %}">Home</a></li>
+
+{% endblock %}

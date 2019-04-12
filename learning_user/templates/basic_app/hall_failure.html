@@ -1,0 +1,11 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+
+    <h2>***** This date has been booked *****</h2>
+    <br>
+    <p>Choose another date for booking</p>
+    <a href="{% url 'basic_app:hall' %}">Click here</a>
+
+{% endblock %}

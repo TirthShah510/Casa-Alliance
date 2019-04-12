@@ -1,0 +1,16 @@
+{% extends 'basic_app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+<li class="list-group-item"><a href="{% url 'basic_app:hall_manage' %}">Manage Bookings</a></li>
+            <h1>HALL ALLOCATION FORM</h1>
+    <div class = "container">
+            <form novalidate method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input type="submit" class = "col text-center btn btn-outline-success" name="submit" value="submit">
+            </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+    <h1> MAINTENANCE PAYMENT</h1>
+    <div class ="container">
+    <form novalidate method="POST">
+
+        {% csrf_token %}
+
+        <script>
+        function paymentRedirect() {
+            var val = document.getElementById("Radio1").value;
+            if (val = "NetBanking") {
+                window.location.pathname = '{% url 'basic_app:maintenance_netbanking' %}'; //set your path here
+                return true;
+            }
+            else if (val = "Credit/Debit Card") {
+                window.location.pathname = 'payment.html'; //set your path here
+                return true;
+            }
+            else if (val = "Mobile Wallet") {
+                window.location.pathname = 'payment.html'; //set your path here
+                return true;
+            }
+
+        }
+    </script>
+
+        <table>
+        <thead>Maintanance Payment</thead>
+        <tr>
+        <div class="form-group">
+          <label for="rid">Residental ID:</label>
+           <input id="Text1" class="form-control" type="text" />
+        </div>
+
+        <div class="form-group">
+          <label for="month"> Month:</label>
+          <select class="form-control" id="Select1">
+            <option>January</option>
+            <option>Feb</option>
+            <option>Mar</option>
+            <option>Apr</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="pa">Pending Amount:</label>
+          <input id="Text2" class="form-control" type="text" />
+        </div>
+
+        <div class="form-group">
+          <label for="ta">Total Amount:</label>
+          <input id="Text3" class="form-control" type="text" />
+        </div>
+
+        <div class="form-group">
+          <label for="ta">Mode Of Payment:</label>
+           <input id="Radio1"  type="radio" value="NetBanking" onclick="paymentRedirect()" />NetBanking
+           <input id="Radio1" type="radio" value="Credit/Debit Card" onclick="paymentRedirect()" />Credit/Debit Card
+           <input id="Radio1" type="radio" value="Mobile Wallet" onclick="paymentRedirect()" />Mobile Wallet
+        </div>
+
+        <input id="Submit1" class = "col text-center btn btn-success" type="submit" value="MAKE PAYMENT" />
+
+    </table>
+
+
+    </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+    <div class = 'container'>
+
+<li><a href="{% url 'basic_app:home' %}">HOME</a></li>
+
+    <table>
+  <thead>
+    <tr>
+      <th>Registered By</th>
+      <th>Wing Name</th>
+        <th>Flat NO.</th>
+        <th>Contact</th>
+      <th>Image</th>
+        <th>Details</th>
+    </tr>
+  </thead>
+    <tbody>
+    {% if list %}
+    {% for k in list %}
+      <tr>
+        <td>{{ k.registered_by }}</td>
+          <td>{{ k.flat_no }}</td>
+        <td>{{ k.wing_name }}</td>
+          <td>{{ k.owner_contact }}</td>
+      <td><a href="{{ k.property_picture.url }}">Click</a></td>
+        <td><a href="{{ k.id }}">Click</a></td>
+      </tr>
+    {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+    </div>
+{% endblock %}

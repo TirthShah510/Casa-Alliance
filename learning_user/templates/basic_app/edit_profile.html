@@ -1,0 +1,18 @@
+{% extends 'basic_app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+
+    <div class = "container">
+
+        <form novalidate method="POST">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+        <button style="margin-bottom: 1.5rem" class="col center btn btn-success" type="submit">Submit</button>
+
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+
+    <div class = "container">
+    <table class = "table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+        <th>Description</th>
+      <th>File</th>
+    </tr>
+  </thead>
+    <tbody>
+    {% if list %}
+    {% for k in list %}
+      <tr>
+        <td>{{ k.name }}</td>
+          <td>{{ k.description }}</td>
+          <td><a href = "{{ k.file.url }}">Click</a></td>
+
+      </tr>
+    {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+    </div>
+{% endblock %}

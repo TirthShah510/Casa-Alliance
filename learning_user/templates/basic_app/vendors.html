@@ -1,0 +1,33 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+    <li class="list-group-item"><a href="{% url 'basic_app:directory' %}">Direcotry</a></li>
+
+    <table class="col text-center table table-striped">
+  <thead>
+    <tr>
+        <th>Vendor Name</th>
+      <th>Service</th>
+      <th>Days</th>
+        <th>Timing</th>
+      <th>Contact</th>
+    </tr>
+  </thead>
+    <tbody>
+    {% if list %}
+    {% for k in list %}
+      <tr>
+      <td>{{ k.name }}</td>
+        <td>{{ k.service }}</td>
+        <td>{{ k.days }}</td>
+          <td>{{ k.timing }}</td>
+        <td>{{ k.contact }}</td>
+      </tr>
+    {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+
+{% endblock %}
+

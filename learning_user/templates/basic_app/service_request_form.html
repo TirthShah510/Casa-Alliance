@@ -1,0 +1,21 @@
+{% extends 'basic_app/base.html' %}
+
+    {% load crispy_forms_tags %}
+
+{% block body_block %}
+
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            Service Type : <input type="text" class="form-control" name = 'type'>
+            Name : <input type="text" class="form-control" name = 'name'>
+            Address : <input type="text" class="form-control" name = 'add'>
+            Mobile : <input type="text" class="form-control" name = 'mobile'>
+
+                <button style="margin-top: 1.5rem" class="btn btn-success btn-block" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

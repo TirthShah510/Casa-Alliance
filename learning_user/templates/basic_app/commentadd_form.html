@@ -1,0 +1,14 @@
+{% extends 'basic_app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+    <div class="container">
+        <form novalidate method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" class="col text-center btn btn-primary btn-lg"  value="Post Comment">
+        </form>
+    </div>
+
+
+{% endblock %}

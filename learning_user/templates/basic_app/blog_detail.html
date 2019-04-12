@@ -1,0 +1,35 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+{#    <h1> Detail of Property</h1>#}
+<div class="container">
+    <table class = "table table-striped">
+        <tr>
+            <td>Title</td>
+             <td>:</td>
+             <td>{{ blog_detail.title }}</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+             <td>:</td>
+             <td>{{ blog_detail.description }}</td>
+        </tr>
+        <tr>
+            <td>Published</td>
+             <td>:</td>
+             <td>{{ blog_detail.published_date }}</td>
+        </tr>
+    </table>
+
+    <a style="margin-top: 1.5rem" class="btn btn-primary btn-lg" href="{% url 'basic_app:add_comment' pk=blog_detail.pk %}">Add Comment</a>
+    <a style="margin-top: 1.5rem" class="btn btn-primary btn-lg" href="{% url 'basic_app:comment_list' pk=blog_detail.pk %}">Comments</a>
+
+<li class="list-group-item"><a href="{% url 'basic_app:blog_list' %}">Blog List</a></li>
+
+</div>
+
+
+
+
+{% endblock %}

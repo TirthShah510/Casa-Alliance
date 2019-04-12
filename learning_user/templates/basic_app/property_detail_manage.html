@@ -1,0 +1,25 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+    <h1> Detail of Property</h1>
+
+    <p>Wing Name: {{ property_detail.wing_name }}</p>
+    <p>Flat No: {{ property_detail.flat_no }}</p>
+    <p>Purpose : {{ property_detail.property_for }}</p>
+    <p>Type: {{ property_detail.property_type }}</p>
+    <p>BHK: {{ property_detail.property_BHK }}</p>
+    <p>Balconies: {{ property_detail.property_balconies }}</p>
+    <p>Flor Number: {{ property_detail.property_flor_number }}</p>
+    <p>Covered Area: {{ property_detail.property_covered_area }}</p>
+    <p>Carpet Area: {{ property_detail.property_carpet_area }}</p>
+    <p>Expected Price: {{ property_detail.property_price }}</p>
+    <p>Owner: {{ property_detail.property_owner }}</p>
+    <p>Contact: {{ property_detail.owner_contact }}</p>
+    <p>Mode: {{ property_detail.mode }}</p>
+    <image src=" {{ property_detail.property_picture.url }} " width="300">
+
+    <p><a href="{% url 'basic_app:update' pk=property_detail.pk %}">Update</a></p>
+    <p><a href="{% url 'basic_app:delete' pk=property_detail.pk %}">Delete</a></p>
+
+{% endblock %}

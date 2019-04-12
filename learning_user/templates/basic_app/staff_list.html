@@ -1,0 +1,21 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+<li class="list-group-item"><a href="{% url 'basic_app:staff_form' %}">Staff Add</a></li>
+    <div class = "container">
+
+        {% if list %}
+        {% for k in list %}
+            <ul class="list-group">
+
+                <li class="list-group-item">{{ k.service }} : {{ k.servant }} {{ k.full_name }}</li>
+                <a style="margin-top: 1.5rem" class="center btn btn-primary btn-lg" href="{% url 'basic_app:staff_delete' pk=k.pk %}">Delete</a>
+                <a style="margin-top: 1.5rem" class="center btn btn-primary btn-lg" href="{% url 'basic_app:staff_update' pk=k.pk%}">Edit</a>
+            </ul>
+        {% endfor %}
+        {% endif %}
+
+    </div>
+
+    <li class="list-group-item"><a href="{% url 'basic_app:flat' %}">My Flat</a></li>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+
+
+    <div class = "container">
+        <a href="{% url 'basic_app:home' %}">Home</a>
+
+    <h1><b>Profile</b></h1>
+    <table class = "table table-striped">
+        <tr>
+            <td>Username</td>
+            <td>:</td>
+            <td>{{ user }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+             <td>:</td>
+             <td>{{ user.email }}</td>
+        </tr>
+    </table>
+
+    {% if list %}
+        {% for k in list %}
+        <td> <image src = "{{ k.profile_pic.url }}" width="250"></image></td>
+    {% endfor %}
+    {% endif %}
+
+
+    <br>
+   <a style="margin-top: 1.5rem" class="btn btn-primary btn-block" href="{% url 'basic_app:edit_profile' %}">Edit</a>
+    <br>
+        <div style="margin: 1.5rem" >Change password? <a class="btn btn-primary btn-lg" href="{% url 'reset_password' %}">Click</a></div>
+    </div>
+
+{% endblock %}

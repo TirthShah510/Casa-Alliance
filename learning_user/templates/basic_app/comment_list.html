@@ -1,0 +1,25 @@
+{% extends 'basic_app/base.html' %}
+{% block body_block %}
+
+<div class="container">
+    {% if list %}
+    {% for k in list %}
+        <ul class="list-group">
+
+            <li class="list-group-item">Author: {{ k.author }}</li>
+            <li class="list-group-item">Text: {{ k.text }}</li>
+        </ul>
+
+        {% if k.author == request.user.username %}
+            <a style="margin-top: 1.5rem" class="center btn btn-primary btn-lg" href="{% url 'basic_app:comment_delete' pk=k.pk%}">Remove</a>
+            <a style="margin-top: 1.5rem" class="btn btn-primary btn-lg" href="{% url 'basic_app:comment_update' pk=k.pk%}">Edit</a>
+        {% endif %}
+
+    {% endfor %}
+    {% endif %}
+</div>
+
+    <li class="list-group-item"><a href="{% url 'basic_app:blog_list' %}">Blog List</a></li>
+
+
+{% endblock %}

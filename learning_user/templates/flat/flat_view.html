@@ -1,0 +1,83 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+
+    <div class = "container">
+            {% if list %}
+    {% for k in list %}
+        <table class="table table-striped">
+            <tr>
+                <td>House Image</td>
+                <td>:</td>
+                <td>
+                    <image src = "{{ k.profile_pic.url }}" width="250"></image><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   First Name
+                </td>
+                <td>:</td>
+                <td>{{ k.first_name }}</td>
+            </tr>
+            <tr>
+                <td>
+                    Last Name<br>
+                </td>
+                <td>:</td>
+                <td> {{ k.last_name }}</td>
+            </tr>
+            <tr>
+                <td>
+                    Contact<br>
+                </td>
+                <td>:</td>
+                <td> {{ k.contact_no }}</td>
+            </tr>
+            <tr>
+                <td>
+                    Occupation<br>
+                </td>
+                <td>:</td>
+                <td> {{ k.occupation }}</td>
+            </tr>
+            <tr>
+                <td>
+                    Total Members<br>
+                </td>
+                <td>:</td>
+                <td>{{ k.total_members }}</td>
+            </tr>
+            <tr>
+                <td>
+                    Wing<br>
+                </td>
+                <td>:</td>
+                <td> {{ k.wing_name }}</td>
+            </tr>
+        <tr>
+            <td>
+                Flat<br>
+            </td>
+            <td>:</td>
+            <td>{{ k.flat_no }}</td>
+        </tr>
+        </table>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="{% url 'basic_app:vehicle_form' %}">Vehicle(s)</a></li>
+
+            <li class="list-group-item"><a href="{% url 'basic_app:staff_form' %}">Staff</a></li>
+
+        </ul>
+        <br>
+        <a class="btn btn-primary btn-block" style="margin-bottom: 1.5rem" href="{% url 'basic_app:flat_edit' pk=k.pk %}">Edit</a>
+    {% endfor %}
+    {% endif %}
+    </div>
+
+
+
+
+
+{% endblock %}

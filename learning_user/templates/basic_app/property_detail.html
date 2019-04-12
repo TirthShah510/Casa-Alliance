@@ -1,0 +1,112 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+    <li class="list-group-item"><a href="{% url 'basic_app:property_home' %}">Home</a></li>
+    <h1> Detail of Property</h1>
+<div class = "container">
+
+        <table class="table table-striped">
+            <tr>
+                <td>Wing Name</td>
+                <td>:</td>
+                <td>{{ property_detail.wing_name }}</td>
+            </tr>
+
+            <tr>
+                <td>Flat No</td>
+                <td>:</td>
+                <td>{{ property_detail.flat_no }}</td>
+            </tr>
+
+            <tr>
+                <td>Purpose</td>
+                <td>:</td>
+                <td>{{ property_detail.property_for }}</td>
+            </tr>
+
+            <tr>
+                <td>Type</td>
+                <td>:</td>
+                <td>{{ property_detail.property_type }}</td>
+            </tr>
+
+            <tr>
+                <td>BHK</td>
+                <td>:</td>
+                <td>{{ property_detail.property_BHK }}</td>
+            </tr>
+
+            <tr>
+                <td>Balconies</td>
+                <td>:</td>
+                <td>{{ property_detail.property_balconies }}</td>
+            </tr>
+
+            <tr>
+                <td>Flor Number</td>
+                <td>:</td>
+                <td>{{ property_detail.property_flor_number }}</td>
+            </tr>
+
+            <tr>
+                <td>Covered Area</td>
+                <td>:</td>
+                <td>{{ property_detail.property_covered_area }}</td>
+            </tr>
+
+            <tr>
+                <td>Carpet Area</td>
+                <td>:</td>
+                <td>{{ property_detail.property_carpet_area }}</td>
+            </tr>
+
+            <tr>
+                <td>Expected Price</td>
+                <td>:</td>
+                <td>{{ property_detail.property_price }}</td>
+            </tr>
+
+            <tr>
+                <td>Owner</td>
+                <td>:</td>
+                <td>{{ property_detail.property_owner }}</td>
+            </tr>
+
+            <tr>
+                <td>Contact</td>
+                <td>:</td>
+                <td>{{ property_detail.owner_contact }}</td>
+            </tr>
+
+            <tr>
+                <td>Mode</td>
+                <td>:</td>
+                <td>{{ property_detail.mode }}</td>
+            </tr>
+
+            <tr>
+                <td>House Image</td>
+                <td>:</td>
+                <td><image src=" {{ property_detail.property_picture.url }} " width="300"></image></td>
+            </tr>
+
+        </table>
+
+{#        <p>Wing Name: {{ property_detail.wing_name }}</p>#}
+{#        <p>Flat No: {{ property_detail.flat_no }}</p>#}
+{#        <p>Purpose : {{ property_detail.property_for }}</p>#}
+{#        <p>Type: {{ property_detail.property_type }}</p>#}
+{#        <p>BHK: {{ property_detail.property_BHK }}</p>#}
+{#        <p>Balconies: {{ property_detail.property_balconies }}</p>#}
+{#        <p>Flor Number: {{ property_detail.property_flor_number }}</p>#}
+{#        <p>Covered Area: {{ property_detail.property_covered_area }}</p>#}
+{#        <p>Carpet Area: {{ property_detail.property_carpet_area }}</p>#}
+{#        <p>Expected Price: {{ property_detail.property_price }}</p>#}
+{#        <p>Owner: {{ property_detail.property_owner }}</p>#}
+{#        <p>Contact: {{ property_detail.owner_contact }}</p>#}
+{#        <p>Mode: {{ property_detail.mode }}</p>#}
+{#    <image src=" {{ property_detail.property_picture.url }} " width="300"></image>#}
+    </div>
+
+{% endblock %}

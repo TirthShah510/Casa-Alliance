@@ -1,0 +1,37 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+    <li><a href="{% url 'basic_app:complaint_home' %}">COMPLAINT HOME</a></li>
+
+    <div class = "container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>Complaint No.</th>
+              <th>Complaint By</th>
+              <th>Category</th>
+                <th>Subcategory</th>
+              <th>Complaint Description</th>
+                <th>Status</th>
+            </tr>
+          </thead>
+        <tbody>
+        {% if list %}
+        {% for k in list %}
+          <tr>
+          <td>{{ k.pk }}</td>
+            <td>{{ k.complaint_by }}</td>
+            <td>{{ k.category }}</td>
+              <td>{{ k.subcategory }}</td>
+            <td>{{ k.complaint_description }}</td>
+          <td>{{ k.complaint_status }}</td>
+
+          </tr>
+        {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
+</div>
+
+{% endblock %}

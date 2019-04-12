@@ -1,0 +1,29 @@
+{% extends 'basic_app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+
+<h1> Complaint Registration </h1>
+<div class="container">
+
+
+
+
+    <form novalidate method="POST">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <p>Date/Time: <span id="datetime"></span></p>
+                {% csrf_token %}
+                {{ form|crispy }}
+               <input type="submit" class = "btn btn-danger btn-block" value="Register">
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+</script>
+
+{% endblock %}

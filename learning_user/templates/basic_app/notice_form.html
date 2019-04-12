@@ -1,0 +1,25 @@
+{% extends 'basic_app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+
+    <h1> Notice Post </h1><br>
+
+<div class = "container">
+    <p>Date/Time: <span id="datetime"></span></p>
+
+
+    Username: {{ request.user.username }}
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+   <input type="submit" class="btn btn-primary btn-lg" value="POST">
+    </form>
+</div>
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+</script>
+
+{% endblock %}

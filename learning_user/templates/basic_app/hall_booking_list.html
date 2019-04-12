@@ -1,0 +1,37 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+<li class="list-group-item"><a href="{% url 'basic_app:hall' %}">HOME</a></li>
+
+<div class = "container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th>Booked By</th>
+              <th>Event Date</th>
+              <th>Event</th>
+              <th>Event Description</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if list %}
+            {% for k in list %}
+              <tr>
+                <td>{{ k.booked_by }}</td>
+                <td>{{ k.date }}</td>
+                <td>{{ k.event_type }}</td>
+              <td>{{ k.event_description }}</td>
+               <td><a href="{% url 'basic_app:hall_booking_update' pk=k.pk %}">Click</a></td>
+                <td><a href="{% url 'basic_app:hall_booking_delete' pk=k.pk %}">Click</a></td>
+
+              </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'basic_app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+    <div class="container">
+         <form novalidate method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+           <input type="submit" class="btn btn-success btn-block" value="Save">
+        </form>
+    </div>
+<br>
+    <li class="list-group-item"><a href="{% url 'basic_app:vehicle_list' %}">Vehicle list</a></li>
+<br>
+    <li class="list-group-item"><a href="{% url 'basic_app:flat' %}">Home</a></li>
+{% endblock %}

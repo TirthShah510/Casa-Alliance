@@ -1,0 +1,26 @@
+{% extends 'basic_app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+
+ <h1>
+    {% if not user_form.instance.pk %}
+        Register Property
+    {% else %}
+        update Property
+    {% endif %}
+ </h1>
+
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <form method="POST" nonvalidate enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+           <input type="submit" class="btn btn-success btn-block" value="Register">
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

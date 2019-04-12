@@ -1,0 +1,47 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+
+<div class = "container">
+<a href="{% url 'basic_app:watchman_home' %}">HOME</a>
+    <table class = "table table-striped">
+<thead>
+    <tr>
+        <th>Visitor NO.</th>
+        <th>Visitor</th>
+        <th>Visitor Name</th>
+        <th>Host Name</th>
+        <th>Date & Time In</th>
+        <th>Date & Time Out</th>
+        <th>Update</th>
+        <th>Out</th>
+    </tr>
+   </thead>
+   <tbody>
+   {% if list %}
+   {% for k in list %}
+      <tr>
+          <td>{{ k.pk }}</td>
+          <td>{{ k.visitor_prefix }}</td>
+          <td>{{ k.visitor_name }}</td>
+          <td>{{ k.host_name }}</td>
+          <td>{{ k.date_and_time }}</td>
+
+          {% if k.date_and_time_out == k.date_and_time %}
+              <td>None</td>
+              <td><a href="{% url 'basic_app:visitor_update' pk=k.pk %}">Click</a></td>
+              <td><a href="{% url 'basic_app:visitor_out' pk=k.pk %}">Click</a></td>
+          {% else %}
+              <td>{{ k.date_and_time_out }}</td>
+              <td>Click</td>
+              <td>Click</td>
+          {% endif %}
+      </tr>
+   {% endfor %}
+   {% endif %}
+  </tbody>
+</table>
+</div>
+
+{% endblock %}

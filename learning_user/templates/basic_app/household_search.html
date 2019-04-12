@@ -1,0 +1,45 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+<div class = "container">
+        <form method = "POST">
+
+            {% csrf_token %}
+            <div class="active-cyan-3 active-cyan-4 mb-4">
+              <input class="form-control" type="text" placeholder="Search" name = 'srh' aria-label="Search">
+            </div>
+    {#        <input type="text" name = 'srh'>#}
+    {#        <button type="submit">Search</button>#}
+            <button type="submit" class="col text-center btn btn-primary">Search</button>
+        </form>
+
+        <table class = "table table-striped">
+          <thead>
+            <tr>
+                <th>Service</th>
+                <th>Service Man</th>
+                <th>Address</th>
+                <th>Contact No</th>
+                <th>Notify</th>
+            </tr>
+          </thead>
+        <tbody>
+            {% if sr %}
+            {% for k in sr %}
+              <tr>
+                  <td>{{ k.service_type }}</td>
+                  <td>{{ k.service_person }}</td>
+                  <td>{{ k.address }}</td>
+                  <td>{{ k.contact }}</td>
+                  <td><a href="{% url 'basic_app:service_notify' %}">Click</a></td>
+              </tr>
+            {% endfor %}
+            {% endif %}
+      </tbody>
+    </table>
+</div>
+{% endblock %}
+
+
+

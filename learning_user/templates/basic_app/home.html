@@ -1,0 +1,111 @@
+{#{% extends 'basic_app/base.html' %}#}
+{#{% block body_block %}#}
+{##}
+{#    {% if image %}#}
+{#        <image src = "{{ image.profile_pic.url }}" width="250"></image>#}
+{#    {% endif %}#}
+{#    <h2>WELCOME: {{ user.username }}</h2><br>#}
+{#    <div class="sidenav">#}
+{#        <li><a href="{% url 'basic_app:property_home' %}">Property</a></li>#}
+{#        <li><a href="{% url 'basic_app:services' %}">Household Services</a></li>#}
+{#        <li><a href="{% url 'basic_app:household_search' %}">Household Search</a></li>#}
+{#        <li><a href="{% url 'basic_app:maintenance' %}">Maintenance</a></li>#}
+{#        <li><a href="{% url 'basic_app:complaint_home' %}">Complaint</a></li>#}
+{#        <li><a href="{% url 'basic_app:notice_home' %}">Notice</a></li>#}
+{#        <li><a href="{% url 'basic_app:hall' %}">Hall Allocation</a></li>#}
+{#        <li><a href="{% url 'basic_app:funds' %}">Funds and Expenditure</a></li>#}
+{#        <li><a href="{% url 'basic_app:view_profile' %}">User Profile</a></li>#}
+{#        <li><a href="{% url 'search' %}">Profile Search</a></li>#}
+{#        <li><a href="{% url 'basic_app:prediction' %}">Predict Worth</a></li>#}
+{#        <li><a href="{% url 'basic_app:directory' %}">Directory</a></li>#}
+{#        <li><a href="{% url 'basic_app:poll_index' %}">Poll</a></li>#}
+{#        <li><a href="{% url 'basic_app:blog_home' %}">Blog</a></li>#}
+{#        <li><a href="{% url 'basic_app:flat' %}">My Flat</a></li>#}
+{#    </div>#}
+{#{% endblock %}#}
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "proxima-nova-soft", "Proxima Nova Soft", Helvetica, Arial, sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #898989;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #000000;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+       <a href="{% url 'basic_app:property_home' %}">Property</a>
+       <a href="{% url 'basic_app:household_search' %}">Household Search</a>
+       <a href="{% url 'basic_app:maintenance' %}">Maintenance</a>
+       <a href="{% url 'basic_app:complaint_home' %}">Complaint</a>
+       <a href="{% url 'basic_app:notice_home' %}">Notice</a>
+       <a href="{% url 'basic_app:hall' %}">Hall Allocation</a>
+       <a href="{% url 'basic_app:funds' %}">Funds and Expenditure</a>
+       <a href="{% url 'basic_app:view_profile' %}">User Profile</a>
+       <a href="{% url 'search' %}">Profile Search</a>
+    <a href="{% url 'basic_app:flat' %}">My Flat</a>
+       <a href="{% url 'basic_app:prediction' %}">Predict Worth</a>
+       <a href="{% url 'basic_app:directory' %}">Directory</a>
+       <a href="{% url 'basic_app:poll_index' %}">Poll</a>
+       <a href="{% url 'basic_app:blog_home' %}">Blog</a>
+
+</div>
+
+<h2>Animated Sidenav Example</h2>
+<p>Click on the element below to open the side navigation menu.</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+</body>
+</html>

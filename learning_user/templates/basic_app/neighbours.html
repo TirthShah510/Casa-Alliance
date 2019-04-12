@@ -1,0 +1,37 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+    <li class="list-group-item"><a href="{% url 'basic_app:directory' %}">Directory</a></li>
+<table class = "col text-center table table-striped">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>First name</th>
+      <th>Last name</th>
+        <th>Occupation</th>
+        <th>Contact No</th>
+        <th>Wing name</th>
+        <th>Flat No</th>
+    </tr>
+  </thead>
+    <tbody>
+    {% if sr %}
+    {% for k in sr %}
+      <tr>
+        <td>{{ k.user.username }}</td>
+        <td>{{ k.first_name }}</td>
+        <td>{{ k.last_name }}</td>
+      <td>{{ k.occupation }}</td>
+      <td>{{ k.contact_no }}</td>
+      <td>{{ k.wing_name }}</td>
+      <td>{{ k.flat_no }}</td>
+      </tr>
+    {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+
+     <li><a href="{% url 'search' %}">Find Resident</a></li>
+
+{% endblock %}

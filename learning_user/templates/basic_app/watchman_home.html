@@ -1,0 +1,12 @@
+{% extends 'basic_app/base.html' %}
+
+
+
+{% block body_block %}
+    <div class = "container">
+        <a class="center btn btn-primary btn-block" href="{% url 'basic_app:visitor_form' %}">Visitor Entry</a></li>
+        <a class="center btn btn-primary btn-block" href="{% url 'basic_app:visitor_list' %}">Visitor History</a></li>
+        <a class="center btn btn-primary btn-block" href="{% url 'basic_app:directory' %}">Directory</a></li>
+    </div>
+
+{% endblock %}

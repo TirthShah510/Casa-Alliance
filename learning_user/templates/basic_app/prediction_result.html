@@ -1,0 +1,8 @@
+{% extends 'basic_app/base.html' %}
+
+{% block body_block %}
+
+    <h2> The approximate worth of the property: {{ result }}</h2>
+    <li><a href="{% url 'basic_app:prediction' %}">BACK</a></li>
+
+{% endblock %}
